@@ -1,239 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Ashriiii ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:Poppins,sans-serif;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:
-linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-url("background.jpg");
-background-size:cover;
-background-position:center;
-overflow:hidden;
-}
-
-.card{
-width:90%;
-max-width:700px;
-background:rgba(255,255,255,.15);
-backdrop-filter:blur(12px);
-padding:40px;
-border-radius:25px;
-text-align:center;
-color:white;
-box-shadow:0 0 30px rgba(255,255,255,.2);
-animation:fade 1.5s;
-}
-
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-h1{
-font-family:'Dancing Script',cursive;
-font-size:55px;
-margin-bottom:20px;
-}
-
-p{
-font-size:20px;
-line-height:1.9;
-white-space:pre-line;
-}
-
-.buttons{
-margin-top:30px;
-display:flex;
-justify-content:center;
-gap:20px;
-}
-
-button{
-padding:15px 35px;
-font-size:20px;
-border:none;
-border-radius:50px;
-cursor:pointer;
-transition:.3s;
-}
-
-#yes{
-background:#ff4d88;
-color:white;
-}
-
-#no{
-background:white;
-color:#ff4d88;
-}
-
-#popup{
-margin-top:30px;
-font-size:28px;
-font-family:'Dancing Script',cursive;
-display:none;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="card">
-
-<h1>For My Ashriiii ❤️</h1>
-
-<p>
-Hiiii meriii ashriiiii 🥺❤️
-
-Sorryyy yaarrr motuuuuu... pleaseee maan jaa naa chintuuuuuu 😔❤️
-
-Pleaseee mere chikkklluuuuuu, mt nraaz ho na yaar arshuuuu 🥺💗
-
-I loveee youuuuu sooo sooo muchhh babyyyyy 🥺❤️
-
-I will never stop loving you yaar. 💖
-
-Forever yours,
-Vaniiii 🎀🧿
-</p>
-
-<h2 style="margin-top:25px;">Will You Forgive Me? 🥺❤️</h2>
-
-<div class="buttons">
-
-<button id="yes">Yes ❤️</button>
-
-<button id="no">No 😔</button>
-
 </div>
 
-<div id="popup"></div>
-
-</div>
+<script>
 const yes = document.getElementById("yes");
 const no = document.getElementById("no");
 const popup = document.getElementById("popup");
 
-yes.onclick = function(){
+yes.onclick = function () {
+    popup.style.display = "block";
 
-popup.style.display="block";
-
-popup.innerHTML=`
+    popup.innerHTML = `
 🥹❤️<br><br>
-
 thankyouuuuuu babuuuuu 🥺<br><br>
-
 i will improve myself yaar ❤️<br><br>
-
 I loveee youuuuu soooo muchhhh!! 💖<br><br>
-
 Forever Yours,<br>
-
 Vaniiii 🎀🧿
 `;
 
-for(let i=0;i<80;i++){
+    for (let i = 0; i < 80; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "100vh";
+        heart.style.fontSize = (20 + Math.random() * 25) + "px";
+        heart.style.animation = "float 5s linear forwards";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+    }
+};
 
-let heart=document.createElement("div");
-
-heart.innerHTML="❤️";
-
-heart.style.position="fixed";
-heart.style.left=Math.random()*100+"vw";
-heart.style.top="100vh";
-heart.style.fontSize=(20+Math.random()*25)+"px";
-heart.style.animation="float 5s linear forwards";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-heart.remove();
-},5000);
-
+function moveButton() {
+    let x = Math.random() * (window.innerWidth - 150);
+    let y = Math.random() * (window.innerHeight - 80);
+    no.style.position = "fixed";
+    no.style.left = x + "px";
+    no.style.top = y + "px";
 }
 
-}
+no.onmouseover = moveButton;
 
-function moveButton(){
-
-let x=Math.random()*(window.innerWidth-150);
-
-let y=Math.random()*(window.innerHeight-80);
-
-no.style.position="fixed";
-no.style.left=x+"px";
-no.style.top=y+"px";
-
-}
-
-no.onmouseover=moveButton;
-
-no.onclick=function(){
-
-popup.style.display="block";
-
-popup.innerHTML=`
+no.onclick = function () {
+    popup.style.display = "block";
+    popup.innerHTML = `
 🤭❤️<br><br>
-
 koii baat ni yaar mnaa lungi firse 🤭<br><br>
-
 meraa paaaraaa chintuuu nhi h tu 🥺❤️<br><br>
-
 I loveee youuuuu ❤️
 `;
+    moveButton();
+};
 
-moveButton();
-
-}
-
-const style=document.createElement("style");
-
-style.innerHTML=`
-
+const style = document.createElement("style");
+style.innerHTML = `
 @keyframes float{
-
-0%{
-transform:translateY(0);
-opacity:1;
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-120vh);opacity:0;}
 }
-
-100%{
-transform:translateY(-120vh);
-opacity:0;
-}
-
-}
-
 `;
-
 document.head.appendChild(style);
-<script>  </script>
+</script>
 
 </body>
 </html>
